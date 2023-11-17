@@ -172,3 +172,68 @@ INSERT INTO public.marks (student_id,semester_id,marks,subject_id) VALUES
 - feed necessary data to query the output
 
 - completed first task
+
+Task - 2
+----------
+Querys
+------
+- 1.) get students count college wise
+
+	- SELECT college.college_name, COUNT(student.student_id) AS student_count
+FROM college
+JOIN student ON college.college_id = student.college_id
+GROUP BY college.college_name;
+
+	(or)
+
+SELECT
+    college.college_name,
+    (
+        SELECT COUNT(*)
+        FROM student
+        WHERE student.college_id = college.college_id
+    ) AS student_count
+FROM college;
+
+- 2) get students count in a college, course wise
+
+	- SELECT
+    college.college_name,
+    course.course_name,
+    (SELECT COUNT(*)
+     FROM student
+     WHERE student.college_id = college.college_id
+       AND student.course_id = course.course_id) AS student_count
+FROM college
+JOIN college_course ON college.college_id = college_course.college_id
+JOIN course ON college_course.course_id = course.course_id;
+
+
+
+- 3) get the university rank holder across all courses(1 student)
+
+	- SELECT
+    university.university_name,
+    student.student_name,
+    (
+        SELECT SUM(marks.marks)
+        FROM course_subject
+        JOIN marks ON course_subject.course_subject_id = marks.subject_id
+        WHERE student.student_id = marks.student_id
+    ) AS total_marks
+FROM university
+JOIN college ON university.university_id = college.university_id
+JOIN college_course ON college.college_id = college_course.college_id
+JOIN course_subject ON college_course.college_course_id = course_subject.course_id
+JOIN marks ON course_subject.course_subject_id = marks.subject_id
+JOIN student ON marks.student_id = student.student_id
+ORDER BY total_marks DESC
+LIMIT 1;
+
+
+
+- 4) get the list of rank holders each course
+
+- 5) get the college topper across all courses
+- 6) get the college toppers each course
+- 7) get the failed students count each subject 
