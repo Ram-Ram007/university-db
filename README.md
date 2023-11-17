@@ -64,3 +64,60 @@ drop column college_course_id;
 ALTER TABLE course_subject
 add column course_id INTEGER REFERENCES course(course_id);
 
+
+--insert 
+
+insert into university ( university_name ) values ('pondicherry university;')
+
+insert into college (college_name, university_id) values('rajiv gandhi college of engineering and technology',1);
+insert into college (college_name, university_id) values('Ganesh college college of enginering',1),
+('manakula vinayagar institute of technology',1),
+('venkateshwara engineering pondicherry',1),
+('puducherry technological university',1);
+
+insert into course (course_name) values ('computer science engineering'),('electrical and electronics engineering'),
+('electrical and computer engineering'),('mechanical engineering'),('information technology engineering');
+
+insert into subject (subject_name) values('computer programming'),('maths1'),('termodynamics'),('physics'),('chemistry'),('electrical and electronics');
+insert into subject (subject_name) values('engineering mechanics'),('data base'),('cloud computing'),('artificial intelligence ');
+
+
+
+insert into college_course (college_id,course_id) values(1,1),(1,2),(1,3),(1,4),(1,5);
+insert into college_course (college_id,course_id) values(2,1),(2,2),(2,3),(2,4),(2,5);
+insert into college_course (college_id,course_id) values(3,1),(3,2),(3,3),(3,4),(3,5);
+insert into college_course (college_id,course_id) values(4,1),(4,2),(4,3),(4,4),(4,5);
+insert into college_course (college_id,course_id) values(5,1),(5,2),(5,3),(5,4),(5,5);
+
+insert into course_subject(subject_id,course_id) values(1,1),(2,1),(8,1),(9,1),(10,1),(2,2),(4,2),(5,2),(6,2),(7,2),(2,3),(3,3),(5,3),(6,3),(7,3),
+(2,4),(3,4),(5,4),(6,4),(7,4),(1,5),(2,5),(8,5),(9,5),(10,5);
+
+
+alter table semester rename "month" to "sem_month";
+alter table semester rename "year" to "sem_year";
+
+
+insert into semester(sem_month,sem_year)
+values ('april',2023);
+
+
+ALTER TABLE student
+ALTER COLUMN phone
+TYPE bigint;
+
+ALTER TABLE student
+drop column year_of_join;
+
+ALTER TABLE student
+add column year_joined integer;
+
+
+ALTER TABLE student
+drop column dob;
+
+	ALTER TABLE student
+	add column d_o_b date;
+
+
+
+
