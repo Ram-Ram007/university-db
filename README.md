@@ -250,8 +250,8 @@ WHERE marks.marks < 40
 GROUP BY subject.subject_name;
 
 			(or)
-
-SELECT
+- Another method:
+    - SELECT
     subject.subject_name,
     (SELECT COUNT(*)
      FROM course_subject
