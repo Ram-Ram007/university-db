@@ -271,3 +271,10 @@ FROM subject;
 FROM student
 LEFT JOIN marks ON student.student_id = marks.student_id
 WHERE marks.student_id IS NULL;
+
+
+
+- To see total number of students
+
+    - SELECT COUNT(*) AS total_students
+      FROM student;
