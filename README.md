@@ -237,3 +237,15 @@ LIMIT 1;
 - 5) get the college topper across all courses
 - 6) get the college toppers each course
 - 7) get the failed students count each subject 
+
+	- SELECT
+    subject.subject_name,
+    COUNT(*) AS failed_students_count
+FROM subject
+JOIN course_subject ON subject.subject_id = course_subject.subject_id
+JOIN marks ON course_subject.course_subject_id = marks.subject_id
+JOIN student ON marks.student_id = student.student_id
+WHERE marks.marks < 40
+GROUP BY subject.subject_name;
+
+			(or)
