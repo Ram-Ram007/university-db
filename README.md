@@ -160,3 +160,15 @@ INSERT INTO public.marks (student_id,semester_id,marks,subject_id) VALUES
 	 (5,1,70,9),
 	 (5,1,60,10);
 	
+	Task - 1
+----------
+- Build a University students ranking system database.
+- University will have multiple colleges
+- Each college will have many courses,
+- Each Courses will have many subject
+- The university follows semester pattern
+- Need to store the marks for each subject , semester wise
+- design the table structure and relationships
+- feed necessary data to query the output
+
+- completed first task
