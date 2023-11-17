@@ -186,7 +186,8 @@ GROUP BY college.college_name;
 
 	(or)
 
-SELECT
+- Another method:
+    - SELECT
     college.college_name,
     (
         SELECT COUNT(*)
