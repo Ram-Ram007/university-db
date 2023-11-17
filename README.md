@@ -195,7 +195,7 @@ SELECT
     ) AS student_count
 FROM college;
 
-- 2) get students count in a college, course wise
+- 2.) get students count in a college, course wise
 
 	- SELECT
     college.college_name,
@@ -210,7 +210,7 @@ JOIN course ON college_course.course_id = course.course_id;
 
 
 
-- 3) get the university rank holder across all courses(1 student)
+- 3.) get the university rank holder across all courses(1 student)
 
 	- SELECT
     university.university_name,
@@ -263,7 +263,7 @@ FROM subject;
 
 - 8) get over all students list with semester marks
 
-- 9) get the student list who wasnt appear to the exams
+- 9.) get the student list who wasnt appear to the exams
 
 	- SELECT
     student.student_id,
