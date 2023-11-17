@@ -260,3 +260,4 @@ SELECT
        AND marks.marks < 40) AS failed_students_count
 FROM subject;
 
+- 8) get over all students list with semester marks
