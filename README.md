@@ -272,7 +272,7 @@ FROM student
 LEFT JOIN marks ON student.student_id = marks.student_id
 WHERE marks.student_id IS NULL;
 
-
+`Basic query`
 
 - To see total number of students:
 
