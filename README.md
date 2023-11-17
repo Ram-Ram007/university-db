@@ -121,3 +121,42 @@ drop column dob;
 
 
 
+
+INSERT INTO public.student (student_name,phone,address,college_id,course_id,year_joined,d_o_b) VALUES
+	 ('Rin',9092434586,'Puducherry',1,1,2022,'2001-04-11'),
+	 ('Naruto',9392434596,'Puducherry',2,2,2022,'2001-03-03'),
+	 ('Sakura',9876453765,'Puducherry',3,3,2022,'2000-11-04'),
+	 ('Sasuke',8765897654,'Puducherry',4,4,2022,'2001-07-19'),
+	 ('Itachi',6876543278,'Leaf village',5,5,2022,'2001-12-01');
+	 
+	
+	
+INSERT INTO public.marks (student_id,semester_id,marks,subject_id) VALUES
+	 (1,1,95,1),
+	 (1,1,93,2),
+	 (1,1,89,8),
+	 (1,1,93,9),
+	 (1,1,89,10),
+	 (2,1,53,4),
+	 (2,1,59,5),
+	 (2,1,65,6),
+	 (2,1,76,7),
+	 (2,1,75,2);
+INSERT INTO public.marks (student_id,semester_id,marks,subject_id) VALUES
+	 (3,1,100,2),
+	 (3,1,99,3),
+	 (3,1,98,5),
+	 (3,1,100,6),
+	 (3,1,100,7),
+	 (4,1,30,2),
+	 (4,1,40,3),
+	 (4,1,68,5),
+	 (4,1,90,6),
+	 (4,1,100,7);
+INSERT INTO public.marks (student_id,semester_id,marks,subject_id) VALUES
+	 (5,1,40,1),
+	 (5,1,50,2),
+	 (5,1,60,8),
+	 (5,1,70,9),
+	 (5,1,60,10);
+	
