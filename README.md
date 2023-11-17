@@ -261,3 +261,12 @@ SELECT
 FROM subject;
 
 - 8) get over all students list with semester marks
+
+- 9) get the student list who wasnt appear to the exams
+
+	- SELECT
+    student.student_id,
+    student.student_name
+FROM student
+LEFT JOIN marks ON student.student_id = marks.student_id
+WHERE marks.student_id IS NULL;
