@@ -249,3 +249,14 @@ WHERE marks.marks < 40
 GROUP BY subject.subject_name;
 
 			(or)
+
+SELECT
+    subject.subject_name,
+    (SELECT COUNT(*)
+     FROM course_subject
+     JOIN marks ON course_subject.course_subject_id = marks.subject_id
+     JOIN student ON marks.student_id = student.student_id
+     WHERE subject.subject_id = course_subject.subject_id
+       AND marks.marks < 40) AS failed_students_count
+FROM subject;
+
