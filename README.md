@@ -280,7 +280,7 @@ WHERE marks.student_id IS NULL;
     - SELECT COUNT(*) AS total_students
       FROM student;
 
-
+`For my own reference`
  - select
 	p.postcontent ,
 	count(l.postid)
