@@ -265,7 +265,7 @@ FROM
     CourseRankHolders;
 
     (or)
-# need to change
+# Alter methos
 - WITH CourseRankHolders AS (
     SELECT
         s.student_id,
