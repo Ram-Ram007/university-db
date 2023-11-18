@@ -264,6 +264,36 @@ SELECT
 FROM
     CourseRankHolders;
 
+    (or)
+
+    - WITH CourseRankHolders AS (
+    SELECT
+        s.student_id,
+        s.student_name,
+        c.course_name,
+        co.college_name,
+        m.marks,
+        ROW_NUMBER() OVER (PARTITION BY c.course_id ORDER BY m.marks DESC) AS row_num
+    FROM
+        student s
+    JOIN
+        college co ON s.college_id = co.college_id
+    JOIN
+        course c ON s.course_id = c.course_id
+    JOIN
+        marks m ON s.student_id = m.student_id
+)
+SELECT
+    student_id,
+    student_name,
+    college_name,
+    course_name,
+    marks
+FROM
+    CourseRankHolders
+WHERE
+    row_num = 1;
+
 
 # need to change
 
