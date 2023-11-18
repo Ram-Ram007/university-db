@@ -241,7 +241,7 @@ LIMIT 1;
 
 
 - 6.) get the college toppers each course
-
+    
 
 
 - 7.) get the failed students count each subject 
