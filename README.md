@@ -299,7 +299,30 @@ WHERE
 
 - 5.) get the college topper across all courses
 
-
+    - WITH CollegeTopper AS (
+    SELECT
+        s.student_id,
+        s.student_name,
+        co.college_name,
+        m.marks,
+        ROW_NUMBER() OVER (PARTITION BY co.college_id ORDER BY m.marks DESC) AS rank
+    FROM
+        student s
+    JOIN
+        college co ON s.college_id = co.college_id
+    JOIN
+        marks m ON s.student_id = m.student_id
+)
+SELECT
+    student_id,
+    student_name,
+    college_name,
+    marks
+FROM
+    CollegeTopper
+WHERE
+    rank = 1;
+    
 
 - 6.) get the college toppers each course
 
