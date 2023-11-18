@@ -262,7 +262,27 @@ GROUP BY subject.subject_name;
        AND marks.marks < 40) AS failed_students_count
 FROM subject;
 
-- 8.) get over all students list with semester marks
+- 8.) get over all students list with semester marks:
+
+	- SELECT
+    s.student_id,
+    s.student_name,
+    c.course_name,
+    co.college_name,
+    m.semester_id,
+    m.marks,
+    sub.subject_name
+FROM
+    student s
+JOIN
+    college co ON s.college_id = co.college_id
+JOIN
+    course c ON s.course_id = c.course_id
+JOIN
+    marks m ON s.student_id = m.student_id
+JOIN
+    subject sub ON m.subject_id = sub.subject_id;
+
 
 - 9.) get the student list who wasnt appear to the exams
 
