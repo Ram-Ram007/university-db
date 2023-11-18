@@ -265,8 +265,8 @@ FROM
     CourseRankHolders;
 
     (or)
-
-    - WITH CourseRankHolders AS (
+# need to change
+- WITH CourseRankHolders AS (
     SELECT
         s.student_id,
         s.student_name,
@@ -295,7 +295,7 @@ WHERE
     row_num = 1;
 
 
-# need to change
+
 
 - 5.) get the college topper across all courses
 
