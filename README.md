@@ -262,7 +262,7 @@ GROUP BY subject.subject_name;
        AND marks.marks < 40) AS failed_students_count
 FROM subject;
 
-- 8) get over all students list with semester marks
+- 8.) get over all students list with semester marks
 
 - 9.) get the student list who wasnt appear to the exams
 
