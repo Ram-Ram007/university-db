@@ -326,6 +326,36 @@ WHERE
 
 - 6.) get the college toppers each course
 
+    - WITH CollegeCourseToppers AS (
+    SELECT
+        student.student_id,
+        student.student_name,
+        course.course_name,
+        college.college_name,
+        marks.marks,
+        ROW_NUMBER() OVER (PARTITION BY college.college_id, course.course_id ORDER BY marks.marks DESC) AS rank
+    FROM
+        student
+    JOIN
+        college ON student.college_id = college.college_id
+    JOIN
+        marks ON student.student_id = marks.student_id
+    JOIN
+        college_course ON student.course_id = college_course.college_course_id
+    JOIN
+        course ON college_course.course_id = course.course_id
+)
+SELECT
+    student_id,
+    student_name,
+    college_name,
+    course_name,
+    marks
+FROM
+    CollegeCourseToppers
+WHERE
+    rank = 1;
+
 
 
 - 7.) get the failed students count each subject 
