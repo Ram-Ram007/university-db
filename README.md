@@ -279,3 +279,29 @@ WHERE marks.student_id IS NULL;
 
     - SELECT COUNT(*) AS total_students
       FROM student;
+
+
+ - select
+	p.postcontent ,
+	count(l.postid)
+from
+	posts p
+left join likes l on
+	p.postid = l.postid
+group by
+	l.postid,
+	p.postcontent
+having
+	count(p.postid)=(
+	select
+		max(counts) as max_col
+	from
+		(
+		select
+			count(l.postid) as counts
+		from
+			posts p
+		left join likes l on
+			p.postid = l.postid
+		group by
+			l.postid ) as maxresult)
