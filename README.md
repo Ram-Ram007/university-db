@@ -232,6 +232,26 @@ ORDER BY total_marks DESC
 LIMIT 1;
 
 
+    (or)
+
+- Alter method
+
+     SELECT m.student_id, s.student_name, AVG(m.marks) AS cgp,c2.course_name, c.college_name 
+FROM marks m
+join student s on s.student_id = m.student_id 
+join course c2 on c2.course_id = s.course_id 
+join college c on c.college_id = s.college_id 
+GROUP BY m.student_id,s.student_name,c2.course_name,c.college_name
+HAVING AVG(marks) = (
+    SELECT MAX(avg_marks)
+    FROM (
+        SELECT AVG(marks) AS avg_marks
+        FROM marks
+        GROUP BY student_id
+    ) AS max_avg
+);
+
+
 
 - 4.) get the list of rank holders each course
 
