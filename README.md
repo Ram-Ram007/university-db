@@ -287,7 +287,7 @@ WHERE rank = 1;
 
 - 5.) get the college topper across all courses
 
-    -WITH CollegeRankHolders AS ( SELECT s.student_id, s.student_name, co.course_id, co.course_name, c.college_id, c.college_name, AVG(m.marks) AS cgp, RANK() OVER (PARTITION BY c.college_id ORDER BY AVG(m.marks) DESC) AS rank_num FROM marks m JOIN student s ON s.student_id = m.student_id JOIN course co ON co.course_id = s.course_id JOIN college c ON c.college_id = s.college_id GROUP BY s.student_id, s.student_name, co.course_id, co.course_name, c.college_id, c.college_name ) SELECT student_id, student_name, college_name, course_name, cgp FROM CollegeRankHolders WHERE rank_num = 1;
+    - WITH CollegeRankHolders AS ( SELECT s.student_id, s.student_name, co.course_id, co.course_name, c.college_id, c.college_name, AVG(m.marks) AS cgp, RANK() OVER (PARTITION BY c.college_id ORDER BY AVG(m.marks) DESC) AS rank_num FROM marks m JOIN student s ON s.student_id = m.student_id JOIN course co ON co.course_id = s.course_id JOIN college c ON c.college_id = s.college_id GROUP BY s.student_id, s.student_name, co.course_id, co.course_name, c.college_id, c.college_name ) SELECT student_id, student_name, college_name, course_name, cgp FROM CollegeRankHolders WHERE rank_num = 1;
 
 
     
