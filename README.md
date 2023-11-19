@@ -373,24 +373,13 @@ FROM subject;
 
 - 8.) get over all students list with semester marks:
 
-	- SELECT
-    s.student_id,
-    s.student_name,
-    c.course_name,
-    co.college_name,
-    m.semester_id,
-    m.marks,
-    sub.subject_name
-FROM
-    student s
-JOIN
-    college co ON s.college_id = co.college_id
-JOIN
-    course c ON s.course_id = c.course_id
-JOIN
-    marks m ON s.student_id = m.student_id
-JOIN
-    subject sub ON m.subject_id = sub.subject_id;
+	-  SELECT m.student_id, s.student_name, AVG(m.marks) AS cgp,c2.course_name,s2.sem_month,s2.sem_year
+FROM marks m
+join student s on s.student_id = m.student_id 
+join course c2 on c2.course_id = s.course_id 
+join semester s2 on s2.semester_id = m.semester_id 
+where s2.sem_month ='april' and s2.sem_year =2023
+GROUP BY m.student_id,s.student_name,c2.course_name,s2.sem_month,s2.sem_year
 
 
 - 9.) get the student list who wasnt appear to the exams
