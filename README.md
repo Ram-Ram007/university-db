@@ -431,7 +431,7 @@ JOIN
     student.student_name
 FROM student
 LEFT JOIN marks ON student.student_id = marks.student_id
-WHERE marks.student_id IS NULL;
+WHERE marks.mark IS NULL;
 
 `Basic query`
 
