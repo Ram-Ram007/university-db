@@ -371,6 +371,18 @@ GROUP BY subject.subject_name;
        AND marks.marks < 40) AS failed_students_count
 FROM subject;
 
+    (or)
+
+- SELECT COUNT(*)
+FROM (
+    SELECT student_id
+    FROM marks
+    WHERE marks < 40 
+    GROUP BY student_id
+    HAVING COUNT(DISTINCT subject_id) > 1
+) AS dt;
+
+
 - 8.) get over all students list with semester marks:
 
 	-  SELECT m.student_id, s.student_name, AVG(m.marks) AS cgp,c2.course_name,s2.sem_month,s2.sem_year
