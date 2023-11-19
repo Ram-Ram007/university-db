@@ -255,33 +255,32 @@ HAVING AVG(marks) = (
 
 - 4.) get the list of rank holders each course
 
-    - WITH CourseRankHolders AS (
-        SELECT
+    -  SELECT 
+    student_id,
+    student_name,
+    course_name,
+    cgp AS average_marks
+FROM (
+    SELECT 
         s.student_id,
         s.student_name,
         c.course_name,
-        co.college_name,
-        m.marks,
-        ROW_NUMBER() OVER (PARTITION BY c.course_id ORDER BY m.marks DESC) AS row_num
-    FROM
-        student s
-    JOIN
-        college co ON s.college_id = co.college_id
-    JOIN
-        course c ON s.course_id = c.course_id
-    JOIN
-        marks m ON s.student_id = m.student_id
-)
-SELECT
-    student_id,
-    student_name,
-    college_name,
-    course_name,
-    marks
-FROM
-    CourseRankHolders
-WHERE
-    row_num = 1;
+        AVG(m.marks) AS cgp,
+        rank() OVER(PARTITION BY c.course_id ORDER BY AVG(m.marks) DESC) AS rank
+    FROM 
+        marks m
+    JOIN 
+        student s ON s.student_id = m.student_id
+    JOIN 
+        course c ON c.course_id = s.course_id
+    GROUP BY 
+        s.student_id, 
+        s.student_name,
+        c.course_name,
+        c.course_id 
+) ranked_students
+WHERE rank = 1;
+
 
 
 
