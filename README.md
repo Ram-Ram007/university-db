@@ -287,29 +287,9 @@ WHERE rank = 1;
 
 - 5.) get the college topper across all courses
 
-    - WITH CollegeTopper AS (
-    SELECT
-        s.student_id,
-        s.student_name,
-        co.college_name,
-        m.marks,
-        ROW_NUMBER() OVER (PARTITION BY co.college_id ORDER BY m.marks DESC) AS rank
-    FROM
-        student s
-    JOIN
-        college co ON s.college_id = co.college_id
-    JOIN
-        marks m ON s.student_id = m.student_id
-)
-SELECT
-    student_id,
-    student_name,
-    college_name,
-    marks
-FROM
-    CollegeTopper
-WHERE
-    rank = 1;
+    -WITH CollegeRankHolders AS ( SELECT s.student_id, s.student_name, co.course_id, co.course_name, c.college_id, c.college_name, AVG(m.marks) AS cgp, RANK() OVER (PARTITION BY c.college_id ORDER BY AVG(m.marks) DESC) AS rank_num FROM marks m JOIN student s ON s.student_id = m.student_id JOIN course co ON co.course_id = s.course_id JOIN college c ON c.college_id = s.college_id GROUP BY s.student_id, s.student_name, co.course_id, co.course_name, c.college_id, c.college_name ) SELECT student_id, student_name, college_name, course_name, cgp FROM CollegeRankHolders WHERE rank_num = 1;
+
+
     
 
 - 6.) get the college toppers each course
@@ -343,6 +323,19 @@ FROM
     CollegeCourseToppers
 WHERE
     rank = 1;
+
+    (or)
+
+-  select student_id,student_name,college_name ,course_name,cgp as avg_marks
+from(
+	select m.student_id ,s.student_name, c.college_name,c2.course_name, AVG(m.marks) AS cgp,
+rank() over(partition by c2.course_id,c.college_id  order by AVG(m.marks) DESC) as ranking
+from marks m 
+join student s on s.student_id = m.student_id 
+join college c on c.college_id = s.college_id 
+join course c2 on c2.course_id = s.course_id 
+group by m.student_id ,s.student_name, c.college_name,c2.course_id,c.college_id  ,c2.course_name) course_rank
+where ranking =1;
 
 
 
