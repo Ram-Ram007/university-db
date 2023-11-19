@@ -255,39 +255,8 @@ HAVING AVG(marks) = (
 
 - 4.) get the list of rank holders each course
 
-    WITH CourseRankHolders AS (
-    SELECT
-        s.student_id,
-        s.student_name,
-        c.course_name,
-        co.college_name,
-        SUM(m.marks) AS total_marks,
-        DENSE_RANK() OVER (PARTITION BY c.course_id ORDER BY SUM(m.marks) DESC) AS rank
-    FROM
-        student s
-    JOIN
-        college co ON s.college_id = co.college_id
-    JOIN
-        course c ON s.course_id = c.course_id
-    JOIN
-        marks m ON s.student_id = m.student_id
-    GROUP BY
-        s.student_id, s.student_name, c.course_id, c.course_name, co.college_name
-)
-SELECT
-    student_id,
-    student_name,
-    college_name,
-    course_name,
-    total_marks,
-    rank
-FROM
-    CourseRankHolders;
-
-    (or)
-# Alter methos
-- WITH CourseRankHolders AS (
-    SELECT
+    - WITH CourseRankHolders AS (
+        SELECT
         s.student_id,
         s.student_name,
         c.course_name,
