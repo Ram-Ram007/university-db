@@ -173,6 +173,57 @@ INSERT INTO public.marks (student_id,semester_id,marks,subject_id) VALUES
 
 - completed first task
 
+# Thala vali task
+
+
+- ALTER TABLE college
+ADD CONSTRAINT fk_college_university
+FOREIGN KEY (university_id) REFERENCES university(university_id) ON DELETE CASCADE;
+
+
+- ALTER TABLE college_course
+ADD CONSTRAINT fk_college_course_college
+FOREIGN KEY (college_id) REFERENCES college(college_id) ON DELETE CASCADE;
+
+- ALTER TABLE college_course
+ADD CONSTRAINT fk_college_course_course
+FOREIGN KEY (course_id) REFERENCES course(course_id) ON DELETE CASCADE;
+
+
+- ALTER TABLE course_subject
+ADD CONSTRAINT fk_course_subject_college_course
+FOREIGN KEY (course_id) REFERENCES college_course(college_course_id) ON DELETE CASCADE;
+
+- ALTER TABLE course_subject
+ADD CONSTRAINT fk_course_subject_subject
+FOREIGN KEY (subject_id) REFERENCES subject(subject_id) ON DELETE CASCADE;
+
+
+- ALTER TABLE student
+ADD CONSTRAINT fk_student_college
+FOREIGN KEY (college_id) REFERENCES college(college_id) ON DELETE CASCADE;
+
+- ALTER TABLE student
+ADD CONSTRAINT fk_student_course
+FOREIGN KEY (course_id) REFERENCES course(course_id) ON DELETE CASCADE;
+
+
+- ALTER TABLE marks
+ADD CONSTRAINT fk_marks_student
+FOREIGN KEY (student_id) REFERENCES student(student_id) ON DELETE CASCADE;
+
+- ALTER TABLE marks
+ADD CONSTRAINT fk_marks_semester
+FOREIGN KEY (semester_id) REFERENCES semester(semester_id) ON DELETE CASCADE;
+
+- ALTER TABLE marks
+ADD CONSTRAINT fk_marks_subject
+FOREIGN KEY (subject_id) REFERENCES subject(subject_id) ON DELETE CASCADE;
+
+
+
+
+
 Task - 2
 
 Querys
