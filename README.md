@@ -474,3 +474,5 @@ having
 SET score = 40
 WHERE score BETWEEN 35 AND 39;
 
+2.)get the history of marks that are changed:
+
