@@ -470,3 +470,7 @@ having
 
 1.)update the mark to 40 those who were scored the marks between 35 to 39:
 
+- UPDATE students
+SET score = 40
+WHERE score BETWEEN 35 AND 39;
+
