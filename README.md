@@ -478,6 +478,20 @@ WHERE score BETWEEN 35 AND 39;
 
 3.)choose any select query from tast 2 and insert the values into a temp table:
 
+- CREATE TEMPORARY TABLE temp_fail AS
+SELECT
+    subject.subject_name,
+    (SELECT COUNT(*)
+     FROM course_subject
+     JOIN marks ON course_subject.course_subject_id = marks.subject_id
+     JOIN student ON marks.student_id = student.student_id
+     WHERE subject.subject_id = course_subject.subject_id
+       AND marks.marks < 40) AS failed_students_count
+FROM subject;
+
+
+SELECT * FROM temp_fail;
+
 4.)delete a college and its respective things:
 
     CREATE TABLE colleges (
