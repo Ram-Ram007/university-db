@@ -479,3 +479,5 @@ WHERE score BETWEEN 35 AND 39;
 3.)choose any select query from tast 2 and insert the values into a temp table:
 
 4.)delete a college and its respective things:
+
+5.)delete a college and its respective things
