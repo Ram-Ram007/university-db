@@ -476,3 +476,6 @@ WHERE score BETWEEN 35 AND 39;
 
 2.)get the history of marks that are changed:
 
+3.)choose any select query from tast 2 and insert the values into a temp table:
+
+4.)delete a college and its respective things:
