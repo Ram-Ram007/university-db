@@ -480,6 +480,21 @@ WHERE score BETWEEN 35 AND 39;
 
 4.)delete a college and its respective things:
 
+    CREATE TABLE colleges (
+    college_id SERIAL PRIMARY KEY,
+    college_name VARCHAR(255)
+);
+
+CREATE TABLE students (
+    student_id SERIAL PRIMARY KEY,
+    student_name VARCHAR(255),
+    college_id INT REFERENCES colleges(college_id) ON DELETE CASCADE
+);
+
+
+    DELETE FROM colleges
+WHERE college_id = 1;
+
 5.)alter all the tables add audit columns (createdAt,createBy,updatedAt,updatedBy)
 
 6.)remove the duplicate values in the mark table(insert values for your convenient)
