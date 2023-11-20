@@ -480,4 +480,6 @@ WHERE score BETWEEN 35 AND 39;
 
 4.)delete a college and its respective things:
 
-5.)delete a college and its respective things
+5.)alter all the tables add audit columns (createdAt,createBy,updatedAt,updatedBy)
+
+6.)remove the duplicate values in the mark table(insert values for your convenient)
