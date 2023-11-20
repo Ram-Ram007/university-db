@@ -478,7 +478,8 @@ WHERE score BETWEEN 35 AND 39;
 
 3.)choose any select query from tast 2 and insert the values into a temp table:
 
-- CREATE TEMPORARY TABLE temp_fail AS
+- 
+CREATE TEMPORARY TABLE temp_fail AS
 SELECT
     subject.subject_name,
     (SELECT COUNT(*)
@@ -490,7 +491,7 @@ SELECT
 FROM subject;
 
 
-SELECT * FROM temp_fail;
+select * from temp_fail;
 
 4.)delete a college and its respective things:
 
