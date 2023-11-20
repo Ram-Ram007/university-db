@@ -176,7 +176,7 @@ INSERT INTO public.marks (student_id,semester_id,marks,subject_id) VALUES
 Task - 2
 
 Querys
-------
+---
 - 1.) get students count college wise
 
 	- SELECT college.college_name, COUNT(student.student_id) AS student_count
