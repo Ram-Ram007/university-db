@@ -174,7 +174,7 @@ INSERT INTO public.marks (student_id,semester_id,marks,subject_id) VALUES
 - completed first task
 
 Task - 2
-----------
+---------
 Querys
 ------
 - 1.) get students count college wise
