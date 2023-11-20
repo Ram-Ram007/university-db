@@ -221,7 +221,47 @@ ADD CONSTRAINT fk_marks_subject
 FOREIGN KEY (subject_id) REFERENCES subject(subject_id) ON DELETE CASCADE;
 
 
+# issues in thalavali task
 
+
+DELETE FROM college
+WHERE college_id = 4;
+
+
+-- Drop existing foreign key constraint
+ALTER TABLE college_course
+DROP CONSTRAINT college_course_college_id_fkey;
+
+
+
+-- Recreate foreign key constraint with ON DELETE CASCADE
+ALTER TABLE college_course
+ADD CONSTRAINT college_course_college_id_fkey
+FOREIGN KEY (college_id) REFERENCES college(college_id) ON DELETE CASCADE;
+
+
+
+-- Drop existing foreign key constraint
+ALTER TABLE student
+DROP CONSTRAINT student_college_id_fkey;
+
+
+
+-- Recreate foreign key constraint with ON DELETE CASCADE
+ALTER TABLE student
+ADD CONSTRAINT student_college_id_fkey
+FOREIGN KEY (college_id) REFERENCES college(college_id) ON DELETE CASCADE;
+
+-- Drop existing foreign key constraint
+ALTER TABLE marks
+DROP CONSTRAINT marks_student_id_fkey;
+
+-- Recreate foreign key constraint with ON DELETE CASCADE
+ALTER TABLE marks
+ADD CONSTRAINT marks_student_id_fkey
+FOREIGN KEY (student_id) REFERENCES student(student_id) ON DELETE CASCADE;
+
+# end of thala vali task
 
 
 Task - 2
