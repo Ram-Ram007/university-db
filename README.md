@@ -173,7 +173,7 @@ INSERT INTO public.marks (student_id,semester_id,marks,subject_id) VALUES
 
 - completed first task
 
-# Thala vali task
+#  task
 
 
 - ALTER TABLE college
@@ -221,7 +221,7 @@ ADD CONSTRAINT fk_marks_subject
 FOREIGN KEY (subject_id) REFERENCES subject(subject_id) ON DELETE CASCADE;
 
 
-# issues in thalavali task
+# issues in task
 
 
 DELETE FROM college
@@ -261,7 +261,7 @@ ALTER TABLE marks
 ADD CONSTRAINT marks_student_id_fkey
 FOREIGN KEY (student_id) REFERENCES student(student_id) ON DELETE CASCADE;
 
-# end of thala vali task
+# end of task
 
 
 Task - 2
