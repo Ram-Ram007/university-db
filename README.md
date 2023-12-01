@@ -1,4 +1,4 @@
-# University database task
+# University database task db
 
 
 CREATE TABLE university (
