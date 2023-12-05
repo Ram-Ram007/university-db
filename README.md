@@ -173,7 +173,7 @@ INSERT INTO public.marks (student_id,semester_id,marks,subject_id) VALUES
 
 - completed first task
 
-#  task
+#  task.
 
 
 - ALTER TABLE college
