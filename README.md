@@ -65,7 +65,7 @@ ALTER TABLE course_subject
 add column course_id INTEGER REFERENCES course(course_id);
 
 
---insert 
+--insert into 
 
 insert into university ( university_name ) values ('pondicherry university;')
 
