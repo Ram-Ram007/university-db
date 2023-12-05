@@ -122,7 +122,7 @@ drop column dob;
 
 
 
-INSERT INTO public.student (student_name,phone,address,college_id,course_id,year_joined,d_o_b) VALUES
+INSERT INTO public.student. (student_name,phone,address,college_id,course_id,year_joined,d_o_b) VALUES
 	 ('Rin',9092434586,'Puducherry',1,1,2022,'2001-04-11'),
 	 ('Naruto',9392434596,'Puducherry',2,2,2022,'2001-03-03'),
 	 ('Sakura',9876453765,'Puducherry',3,3,2022,'2000-11-04'),
