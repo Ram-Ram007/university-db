@@ -221,7 +221,7 @@ ADD CONSTRAINT fk_marks_subject
 FOREIGN KEY (subject_id) REFERENCES subject(subject_id) ON DELETE CASCADE;
 
 
-# issues in task
+# issues in task.
 
 
 DELETE FROM college
