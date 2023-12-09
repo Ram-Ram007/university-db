@@ -1,4 +1,4 @@
-# University database task db.
+ji# University database task db.
 
 
 CREATE TABLE university (
@@ -65,7 +65,7 @@ ALTER TABLE course_subject
 add column course_id INTEGER REFERENCES course(course_id);
 
 
---insert into.
+--insert into
 
 insert into university ( university_name ) values ('pondicherry university;')
 
